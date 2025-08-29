@@ -11,8 +11,8 @@ flowchart TB
     E --> F[Get Scanner Component ID]
     F --> G{Test Scenario}
     
-    G -->|Status/Events| H[Send Platform Status<br/>PATCH /app/components/{id}]
-    G -->|Scanner Data| I[Send Scanner Payload<br/>PATCH /app/components/{id}/payload]
+    G -->|Status/Events| H[Send Platform Status<br/>PATCH /app/components/id]
+    G -->|Scanner Data| I[Send Scanner Payload<br/>PATCH /app/components/id/payload]
     
     H --> H1[Message Codes:<br/>OK, DATA_PRESENT,<br/>MEDIA_ABSENT, TIMEOUT]
     
