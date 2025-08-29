@@ -1,36 +1,18 @@
 # CUSS2 Sandbox API – README
 
-## API Workflow Overview
+## Testing Flow Overview
 
 ```mermaid
-flowchart TB
-    A[Create Credentials<br/>in Sandbox UI] --> B[Launch CUSS App<br/>with Query Parameters]
-    B --> C[App Activation<br/>/app/activate]
-    C --> D[Get CUSS Contexts<br/>/app/context]
-    D --> E[List Components<br/>/app/components]
-    E --> F[Get Scanner Component ID]
-    F --> G{Test Scenario}
-    
-    G -->|Status/Events| H[Send Platform Status<br/>PATCH /app/components/id]
-    G -->|Scanner Data| I[Send Scanner Payload<br/>PATCH /app/components/id/payload]
-    
-    H --> H1[Message Codes:<br/>OK, DATA_PRESENT,<br/>MEDIA_ABSENT, TIMEOUT]
-    
-    I --> I1{Data Type}
-    I1 -->|Barcode| J[QR, Code128, Code39<br/>TEXT encoding]
-    I1 -->|Passport| K[MRZ Codeline<br/>TEXT encoding]
-    I1 -->|ePassport| L[DG1, DG2, etc.<br/>BASE64 encoding]
-    
-    H1 --> M[App Receives Events<br/>via WebSocket]
-    J --> M
-    K --> M
-    L --> M
+flowchart LR
+    A[Your CUSS App] -->|Connects to| B[Sandbox API]
+    C[Test Suite/curl] -->|Trigger Scanner Read| B
+    C -->|Send Platform Events| B
+    B -->|Barcode/Passport Data| A
+    B -->|Status Updates| A
     
     style A fill:#4a90e2,stroke:#333,stroke-width:2px,color:#fff
-    style B fill:#7b68ee,stroke:#333,stroke-width:2px,color:#fff
-    style M fill:#32cd32,stroke:#333,stroke-width:2px,color:#000
-    style G fill:#ffa500,stroke:#333,stroke-width:2px,color:#000
-    style I1 fill:#ffa500,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#ffa500,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#7b68ee,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 This guide shows how to launch a CUSS2 web application against the **sandbox**, emulate **platform status/events**, and simulate **scanner reads** (barcode, MRZ, ePassport DGs). It's written for quick copy-paste testing with `curl` and browser launch URLs.
