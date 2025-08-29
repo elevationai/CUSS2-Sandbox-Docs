@@ -6,6 +6,8 @@ This guide shows how to launch a CUSS2 web application against the **sandbox**, 
 
 ## At a Glance
 
+
+- **API docs (Swagger UI):** https://cloudsandbox.azurewebsites.net/docs
 - **Sandbox base URL (REST):** `https://cloudsandbox.azurewebsites.net`
 - **OAuth token endpoint:** `https://cloudsandbox.azurewebsites.net/oauth/token`
 - **WebSocket (WSS) endpoint:** `wss://cloudsandbox.azurewebsites.net`
@@ -210,3 +212,11 @@ curl -X PATCH https://cloudsandbox.azurewebsites.net/app/components/<component_i
 ---
 
 Happy testing!
+
+---
+
+## 10) API Reference (Swagger UI)
+
+For an interactive reference of all endpoints, request/response schemas, and live testing, visit the Swagger UI:
+
+**https://cloudsandbox.azurewebsites.net/docs**
