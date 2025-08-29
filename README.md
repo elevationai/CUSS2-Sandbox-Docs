@@ -26,9 +26,11 @@ flowchart TB
     K --> M
     L --> M
     
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style M fill:#e8f5e8
+    style A fill:#4a90e2,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#7b68ee,stroke:#333,stroke-width:2px,color:#fff
+    style M fill:#32cd32,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#ffa500,stroke:#333,stroke-width:2px,color:#000
+    style I1 fill:#ffa500,stroke:#333,stroke-width:2px,color:#000
 ```
 
 This guide shows how to launch a CUSS2 web application against the **sandbox**, emulate **platform status/events**, and simulate **scanner reads** (barcode, MRZ, ePassport DGs). It's written for quick copy-paste testing with `curl` and browser launch URLs.
